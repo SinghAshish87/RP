@@ -1,26 +1,23 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import Navbar from "./components/Pages/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./components/Pages/Home";
-import AboutUs from "./components/Pages/About";
+import About from "./components/Pages/About";
 import Projects from "./components/Pages/Projects";
-import ContactUs from "./components/Pages/Contact";
-// import "./App.css"; // Assuming you have some basic 
+import Contact from "./components/Pages/Contact";
+import "./App.css"; // Assuming you have some basic 
+import Navbar from "./components/Pages/Navbar";
 
 
-function App() {
+function App() {          
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={AboutUs} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/contact" component={ContactUs} />
-        </Switch>
-      </div>
-    </Router>
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+          <Route path="/"  element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/projects" element={<Projects/>} />
+          <Route path="/contact" element={<Contact/>} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
